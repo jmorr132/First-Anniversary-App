@@ -1,24 +1,22 @@
 var ViewModel = function() {
     var self = this;
-    /**the array of visible markers is the one the will be displayed on the mapl and in the list of resturants**/
     self.markersVisible = ko.observableArray([]);
-    /**the array of markers will save all the locations - the ones that are displayed and the ones that are not displyed**/
     self.markersMap = ko.observableArray([]);
     self.infoWindows = ko.observableArray([]);
 
     function initialize() {
-        /**creation of the map**/
+        // Renders Google Map with starting lat/lng
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: {lat: 48.428702, lng: -123.365071}
         });
         var infowindow = new google.maps.InfoWindow({});
-        /*client id and client secret for foursquare api*/
+        // Client Information for the Foursquare API
         var CLIENT_ID_Foursquare = "WUD2RNWVNITJBYFSMVMAJA2CIDEZA2RLWHCL23COSXWX4D1G";
         var CLIENT_SECRET_Foursquare = "V1FOIQFUDTZS5YP1VWX4BBNNQAKCLJMSE3NXINYGGGXOCHDD";
-        /**creating all the markers on the map**/
+        // This Function will create map markers.
         initialData.forEach(function(item) {
-            /*Foursquare api ajax request*/
+            // Ajax Request for foursquare
             $.ajax({
                 type: "GET",
                 dataType: 'json',
@@ -27,7 +25,7 @@ var ViewModel = function() {
                 data: 'limit=1&ll=' + item.lat + ',' + item.lng + '&query=' + item.title + '&client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare + '&v=20140806&m=foursquare',
                 async: true,
                 success: function(data) {
-                    /*callback function if succes - Will add the rating received from foursquare to the content of the info window*/
+                    // Displays Foursquare information in information window.
                     item.rating = data.response.groups[0].items[0].venue.rating;
                     console.log(data.response.photo);
                     if (!item.rating) {
@@ -36,12 +34,12 @@ var ViewModel = function() {
                     marker.content = '<br><div class="labels">' + '<div class="title">' + item.title + '</div><div class="rating">Foursquare rating: ' + item.rating + '</div><p>' + item.description + '</p>' + '<a href=' + item.URL + '>' + item.URL + '</a>' + '</div>';
                 },
                 error: function(data) {
-                    /*callback function if error - an alert will be activaded to notify the user of the error*/
+                    // Notifies users of Foursquare error
                     alert("Could not load data from foursquare!");
                 }
             });
             
-            /*creation of new markers*/
+           //Creates new Map Markers
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(item.lat, item.lng),
                 map: map,
@@ -49,7 +47,6 @@ var ViewModel = function() {
                 description: item.description,
                 URL: item.URL,
                 rating: item.rating,
-                /**if the location on the list is clicked than the info window of the marker will appear-**/
                 listClick: function(thisMarker) {
                     infowindow.setContent(marker.content);
                     infowindow.open(map, thisMarker);
@@ -58,7 +55,6 @@ var ViewModel = function() {
             self.markersVisible.push(marker);
             self.markersMap.push(marker);
             marker.addListener('click', function() {
-                /*if the animation is allready active, clicking again will stop it*/
                 if (marker.getAnimation() == null) {
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     setTimeout(function() {
@@ -120,14 +116,13 @@ var ViewModel = function() {
     }
     self.query = ko.observable('');
     self.query.subscribe(function(value) {
-        /**mark all markers as invisible and remove them from the visible markers list**/
+        //Toggles markers off
         self.markersMap().forEach(function(item) {
             item.setVisible(false);
             self.markersVisible.remove(item);
         });
         self.markersMap().forEach(function(item) {
             if (item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
-                /**if the place is relevant to the search, make the marker visible and add the marker to the visible markers list**/
                 item.setVisible(true);
                 self.markersVisible.push(item);
             }
