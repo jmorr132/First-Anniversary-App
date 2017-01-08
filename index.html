@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1">
+        <title>Our First Anniversary</title> 
+        <link rel="stylesheet" href="css/bootstrap.min">
+        <link rel="stylesheet" href="css/style.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <script src="JS/jQuery.js"></script>
+        <script>
+        function googleSuccess() {
+                if (!google) {
+                    alert("Could not load data from Google Maps!")
+                } else {
+                    ko.applyBindings(new ViewModel());
+                }
+            }
+         </script> 
+         <!-- Google Maps Script -->         
+         <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&callback=googleSuccess"></script>  
+    </head> 
+    <body>
+       <div class="site-wrapper">
+        <div class="main">
+            <div class="wrap">
+                <a href="#navigation" title="navigation menu" aria-label="navigation menu"> Navigation Menu <span class="bar bar-1"></span 
+                <span class="bar bar-2"></span> <span class="bar bar-3"></span> </a>
+                <div class="LargeHeadline">Places we Visited on Our First Anniversary</div>
+                <input id="pac-input" class="controls" placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+            </div>     
+         <div id = "map"></div>
+        </div>
+    
+        <nav id="navigation" role="navigation">
+            <ul data-bind="template: {foreach: markersVisible}">
+                <li>
+                    <a data-bind="text: title, click: listClick" href="#"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </body>
+
+<!-- Custom Script --> 
+    <script type="text/javascript" src="js/navigation.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</html>
