@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1">
-        <title>Our First Anniversary</title> 
+        <title>Our First Anniversary</title>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css"> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <link rel="stylesheet" href="css/style.css">      
         <script src="JS/jQuery.js"></script>
         <script>
         function googleSuccess() {
@@ -20,34 +20,44 @@
          <!-- Google Maps Script -->         
          <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&callback=googleSuccess"></script>  
     </head> 
-<div class=container>
-    <body>
-       <div class="site-wrapper">
-        <div class="main">
-            <div class="wrap">
-                <a href="#navigation" title="navigation menu" aria-label="navigation menu"> Navigation Menu <span class="bar bar-1"></span 
-                <span class="bar bar-2"></span> <span class="bar bar-3"></span> </a>
-                <div class="row">
-                    <div class="LargeHeadline">
-                        <h2>Places we Visited on Our First Anniversary<h2>
-                    </div>
+        <body>
+<div class="container-fluid">
+        <div class ="row, text-center">
+            <div class="site-wrapper">
+                <div class="main">
+                    <div class="wrap">
+                            <section id="header">
+                                <div class="title">
+                                    <h1>Our First Anniversary Trip</h1>
+                                    <h3>Victoria B.C.</h3>
+                                    <h3>July, 24th 2016 </h3>
+                                </div>
+                            </section>
+                        </div> 
+                    </div> 
                 </div>
-                <input id="pac-input" class="controls" placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
-            </div> 
-        </div> 
-        </div> 
-        </div>
-         <div id = "map"></div>
-        <nav id="navigation" role="navigation">
-            <ul data-bind="template: {foreach: markersVisible}">
-                <li>
-                    <a data-bind="text: title, click: listClick" href="#"></a>
-                </li>
-            </ul>
-        </nav>
+            </div>
+            <div class="row">
+                <div class = "col-md-8">
+                    <div id = "map"></div>
+                </div>
+                <div class ="col-md-4">
+                    <h2>Places we visited</h2>
+                    <input id="pac-input" class="controls" placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+                    <nav id="places">
+                        <ul data-bind="template: {foreach: markersVisible}">
+                            <ol>
+                                <a data-bind="text: title, click: listClick" href="#"></a>
+                            </ol>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+    <!-- Custom Script --> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+        <script type="text/javascript" src="js/navigation.js"></script>
+        <script type="text/javascript" src="js/data.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+</div>
     </body>
-<!-- Custom Script --> 
-    <script type="text/javascript" src="js/navigation.js"></script>
-    <script type="text/javascript" src="js/data.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
 </html>
