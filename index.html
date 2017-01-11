@@ -7,17 +7,16 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">      
-        <script src="js/jQuery.js"></script>
+        <script src="js/jQuery.js"></script>    
         <script>
-        function googleSuccess() {
+        function Success() {
                 if (!google) {
                     alert("Could not load data from Google Maps!")
                 } else {
                     ko.applyBindings(new ViewModel());
                 }
             }
-         </script> 
-         <!-- Google Maps Script -->         
+        </script>     
     </head> 
         <body>
 <div class="container-fluid">
@@ -53,7 +52,7 @@
                 </div>
             </div>
     <!-- Custom Script --> 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ0uhfGSEBUUU5pAUeBEeUQrFnCPyzYUQ&callback=googleSuccess"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ0uhfGSEBUUU5pAUeBEeUQrFnCPyzYUQ&callback=Success"></script>
         <script type="text/javascript" src="js/knockout-3.4.1.js"></script>
         <script type="text/javascript" src="js/navigation.js"></script>
         <script type="text/javascript" src="js/data.js"></script>
