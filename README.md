@@ -13,8 +13,11 @@ Download this repository and open index.html
 You can visit the adventure at
 https://jmorr132.github.io/First-Anniversary-App/
 
-Refrences:
+Attributes:
 http://knockoutjs.com/
 https://developer.foursquare.com/
+https://developers.google.com/maps/
 Udemys Complete Web Developer 2.0
+All Front End development students for posting awesome looking maps!
+
 
