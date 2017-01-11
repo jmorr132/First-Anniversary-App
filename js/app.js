@@ -86,6 +86,8 @@ function ViewModel() {
             }
         });
     });
-
+    var mapError = function() {
+        $("#map").append('<h1><b>Could not load Google Maps!.</b></h1><br>');
+};
     google.maps.event.addDomListener(window, 'load', initialize);
 };
