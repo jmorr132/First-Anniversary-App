@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/style.css">      
         <script src="js/jQuery.js"></script>    
         <script>
-        function Success() {
+        function googleSuccess() {
                 if (!google) {
                     alert("Could not load data from Google Maps!")
                 } else {
@@ -51,12 +51,12 @@
                     </nav>
                 </div>
             </div>
-    <!-- Custom Script --> 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ0uhfGSEBUUU5pAUeBEeUQrFnCPyzYUQ&callback=Success"></script>
+    <!-- Custom Script -->     
         <script type="text/javascript" src="js/knockout-3.4.1.js"></script>
         <script type="text/javascript" src="js/navigation.js"></script>
         <script type="text/javascript" src="js/data.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ0uhfGSEBUUU5pAUeBEeUQrFnCPyzYUQ&callback=googleSuccess"></script>
 </div>
     </body>
 </html>

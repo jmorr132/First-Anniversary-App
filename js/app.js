@@ -50,6 +50,10 @@ function ViewModel() {
                 listClick: function(thisMarker) {
                     infowindow.setContent(marker.content);
                     infowindow.open(map, thisMarker);
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(function() {
+                        marker.setAnimation(null);
+                    }, 2000);
                 }
             });
             self.markersVisible.push(marker);
