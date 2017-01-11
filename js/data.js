@@ -4,35 +4,35 @@ var initialData =[
         lat:48.425208, 
         lng:-123.36951,
         description: "Steak and Lobsters? Yes Please!",
-        URL:""
+        URL:"https://www.kegsteakhouse.com/"
     },
     {
         title: "Irish Times Pub",
         lat:48.425751, 
         lng:-123.367866,
         description: "We had bangers and mash here! It was so good that we had brunch here the next morning!",
-        URL:""
+        URL:"https://irishtimespub.ca/"
     },
     {
         title: "Butchart Gardens",
         lat: 48.56528,
         lng: -123.4694,
         description:"I promised I would take you here during the summer and I kept my promise. You also where supposed to recieve your ring here but you couldnt wait! We had dinner and stayed for a concert.",
-        URL:""
+        URL:"http://www.butchartgardens.com/"
     },
     {
         title: "The Empress",
         lat: 48.42185,
         lng: -123.368,
         description:"We made frequent stops throughout the week. We also had afternoon tea to celeberate the trip before heading home.",
-        URL:""
+        URL:"http://www.fairmont.com/empress-victoria/"
     },
     {
         title:"Royal British Columbia Museum",
         lat: 48.41944,
         lng: -123.3678,
         description:"We spent a few hours here viewing the mammoth exhibit.",
-        URL:""
+        URL:"http://royalbcmuseum.bc.ca/"
     },
     {
         title:"Thrifty Foods",
