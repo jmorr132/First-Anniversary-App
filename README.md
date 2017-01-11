@@ -12,3 +12,9 @@ Download this repository and open index.html
 
 You can visit the adventure at
 https://jmorr132.github.io/First-Anniversary-App/
+
+Refrences:
+http://knockoutjs.com/
+https://developer.foursquare.com/
+Udemys Complete Web Developer 2.0
+
